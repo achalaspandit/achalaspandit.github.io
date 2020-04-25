@@ -1,0 +1,57 @@
+body{
+	background-color: rgb(64, 224, 208);
+	
+}
+h3 {
+	font-family: 'Shadows Into Light Two', cursive;
+	font-size: 45px;
+	margin-left: 140px;
+}
+img {
+	height: 700px;
+	width: 700px;
+}
+.container{
+	width: 90%;
+	margin-top: 50px;
+	margin: 100px;
+	background-color: rgba(255, 255, 255, 0.836);
+}
+.thead{
+	text-align: center;
+	font-size: 120px;
+	font-family: 'Rancho', cursive;
+}
+.nav{
+	font-size: 35px;
+	font-family: 'Shadows Into Light Two', cursive;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	text-align: center;
+}
+.nav li {
+	display:inline;
+  }
+.nav li a{
+	text-decoration: none;
+	color: black;
+	display: inline-block; 
+	padding: 10px 10px;
+}
+.left{
+	float: left;
+	width: 40%;
+	height: 700px;
+	margin-left:100px;
+	margin-right: 25px ;
+}
+.right{
+	font-family: 'Comic Neue', cursive;
+	font-size: 30px;
+	float: right;
+	width: 40%;
+	height: 700px;
+	padding: 25px;
+	margin-right:150px;
+}
