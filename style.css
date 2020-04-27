@@ -39,6 +39,9 @@ img {
 	display: inline-block; 
 	padding: 10px 10px;
 }
+.nav li a:hover{
+	background-color: rgb(64, 224, 208,0.386);
+}
 .left{
 	float: left;
 	width: 30%;
