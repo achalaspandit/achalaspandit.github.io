@@ -9,6 +9,11 @@ h3 {
 	font-size: 35px;
 	margin-left: 80px;
 }
+h5 {
+	font-family:  'Comic Neue', cursive;
+	font-size: 25px;
+	margin-left: 160px;
+}
 form{
 	margin:30px;
 }
@@ -54,7 +59,7 @@ button{
 	display: inline-block; 
 	padding: 10px 10px;
 }
-.about-area, .journey-area, .skill-area, .contact-area, .pro_area, .download-area{
+.about-area, .skill-area, .contact-area{
 	height: 100%;
 }
 .left{
@@ -75,13 +80,21 @@ button{
 	margin-right:10%;
 	margin-bottom: 90px;
 }
+.download-area{
+	height: 500px;
+}
+.pro-area{
+	height: 850px;
+}
+.journey-area{
+	height: 1500px;
+}
 .section{
-	font-family: 'Comic Neue', cursive;
-	font-size: 20px;
-	height: 400px;
-	margin-top: 25px;
-	margin-left:100px;
-	margin-bottom: 90px;
+	align-content: center;
+	margin-left: 20%;
+	margin-right: 15%;
+	margin-bottom: 10%;
+	width: 700px;
 }
 .skills{
 	align-content: center;
@@ -91,7 +104,12 @@ button{
 	height: 500px;
 	width: 700px;
 }
-
+.cont{
+	font-family: 'Comic Neue', cursive;
+	font-size: 20px;
+	margin-left: 110px;
+	margin-right: 100px;
+}
 .contactbox{
 	width: 700px;
 	margin-left: 15%;
