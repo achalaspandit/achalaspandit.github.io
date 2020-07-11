@@ -28,6 +28,9 @@ button{
 	color: black;
 	border: 1px solid #777;
 }
+a{
+	text-decoration: none;
+}
 .limg {
 	height: 400px;
 	width: 400px;
@@ -59,9 +62,7 @@ button{
 	display: inline-block; 
 	padding: 10px 10px;
 }
-.about-area,.contact-area{
-	height: 100%;
-}
+
 .left{
 	float: left;
 	width: 30%;
@@ -80,17 +81,23 @@ button{
 	margin-right:10%;
 	margin-bottom: 90px;
 }
+.about-area{
+	height: 420px;
+}
+.contact-area{
+	height: 700px;
+}
 .skill-area{
 	height: 1200px;
 }
 .download-area{
-	height: 500px;
+	height: 300px;
 }
 .pro-area{
 	height: 850px;
 }
 .journey-area{
-	height: 1500px;
+	height: 1700px;
 }
 .section{
 	align-content: center;
