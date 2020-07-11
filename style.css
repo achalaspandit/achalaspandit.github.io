@@ -1,21 +1,36 @@
 body{
-	background-color: rgb(64, 224, 208);
-	
+	background-color:rgb(64, 224, 208);
+}
+nav{
+	position: sticky;
 }
 h3 {
 	font-family: 'Shadows Into Light Two', cursive;
 	font-size: 35px;
 	margin-left: 80px;
 }
-img {
+form{
+	margin:30px;
+}
+button{
+	padding:10px;
+	margin-left: 200px;
+	margin-top:20px;
+	height: 40px;
+	width: 200px;
+	border-radius: 8px;
+	background-color:white;
+	color: black;
+	border: 1px solid #777;
+}
+.limg {
 	height: 400px;
 	width: 400px;
 }
 .container{
-	width: 90%;
 	align-self: center;
-	margin: 100px;
-	background-color: rgba(255, 255, 255, 0.786);
+	margin: 8%;
+	background-color: rgba(255, 255, 255, 0.75);
 }
 .thead{
 	text-align: center;
@@ -39,15 +54,16 @@ img {
 	display: inline-block; 
 	padding: 10px 10px;
 }
-.nav li a:hover{
-	background-color: rgb(64, 224, 208,0.386);
+.about-area, .journey-area, .skill-area, .contact-area, .pro_area, .download-area{
+	height: 100%;
 }
 .left{
 	float: left;
 	width: 30%;
 	height: 400px;
-	margin-left:100px;
-	margin-right: 25px ;
+	margin-left:10%;
+	margin-right: 25px;
+	margin-bottom: 90px;
 }
 .right{
 	font-family: 'Comic Neue', cursive;
@@ -56,5 +72,45 @@ img {
 	width: 40%;
 	height: 400px;
 	padding: 25px;
-	margin-right:150px;
+	margin-right:10%;
+	margin-bottom: 90px;
+}
+.section{
+	font-family: 'Comic Neue', cursive;
+	font-size: 20px;
+	height: 400px;
+	margin-top: 25px;
+	margin-left:100px;
+	margin-bottom: 90px;
+}
+.skills{
+	align-content: center;
+	padding: 25px;
+	margin-left: 15%;
+	margin-right: 15%;
+	height: 500px;
+	width: 700px;
+}
+
+.contactbox{
+	width: 700px;
+	margin-left: 15%;
+	margin-right: 15%;
+	background-color:rgb(64, 224, 208);
+	box-shadow: 0 0 20px 0 #999;
+	position: absolute;
+}
+
+.input-field{
+	margin-left: 53px;
+	margin-top: 30px;
+	height: 40px;
+	width: 500px;
+	border-radius: 8px;
+	padding: 10px;
+	border: 1px solid #777;
+}
+.textarea-field{
+	padding: 10px;
+	height: 150px;
 }
