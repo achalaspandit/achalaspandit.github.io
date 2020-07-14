@@ -12,7 +12,7 @@ h3 {
 h5 {
 	font-family:  'Comic Neue', cursive;
 	font-size: 25px;
-	margin-left: 160px;
+	margin-left: 110px;
 }
 form{
 	margin:30px;
@@ -117,7 +117,7 @@ a{
 .cont{
 	font-family: 'Comic Neue', cursive;
 	font-size: 20px;
-	margin-left: 110px;
+	margin-left: 160px;
 	margin-right: 100px;
 }
 .contactbox{
@@ -128,7 +128,6 @@ a{
 	box-shadow: 0 0 20px 0 #999;
 	position: absolute;
 }
-
 .input-field{
 	margin-left: 53px;
 	margin-top: 30px;
