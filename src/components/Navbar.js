@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 
 const navItems = [
@@ -20,7 +19,7 @@ function Navbar() {
                 </NavLink>
 
                 {/* Navigation links */}
-                <div className="flex space-x-3">
+                <div className="font-body flex space-x-3">
                     {navItems.map((item) => (
                         <NavLink
                             key={item.to}

@@ -24,7 +24,7 @@ const projects = [
 function Projects() {
     return (
         <section>
-            <h2 className="text-3xl font-bold mb-6 text-primary dark:text-orange-300">Projects</h2>
+            <h2 className="font-body text-3xl font-bold mb-6 text-primary dark:text-orange-300">Projects</h2>
             <div className="grid md:grid-cols-2 gap-6">
                 {projects.map((project) => (
                     <ProjectCard key={project.title} project={project} />

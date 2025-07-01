@@ -47,40 +47,40 @@ function Home() {
           className="w-44 h-44 rounded-full object-cover border-4 border-primary dark:border-orange-200 shadow"
         />
         <div className="text-center md:text-left">
-          <h1 className="text-4xl font-bold mb-2">Hi, I'm Achala</h1>
-          <h2 className="text-xl text-gray-800 dark:text-gray-200">
+          <h1 className="text-4xl font-body font-bold mb-2">Hi, I'm Achala</h1>
+          <h2 className="text-xl font-body text-gray-800 dark:text-gray-200">
             Building Intelligent Solutions Through Data, Code, and Curiosity
           </h2>
         </div>
       </div>
       {/* About Section */}
       <div className="mb-6 max-w-3xl">
-        <p className="text-base text-gray-800 dark:text-gray-200">
+        <p className="text-base font-body text-gray-800 dark:text-gray-200">
           Welcome to my corner of the web! My venture into technology has unfolded like a grand hiking adventure. My initial spark wasn't a sudden summit, but a gradual realization – that the deliberate, creative process of programming and building brought an incredible and enduring satisfaction, compelling me deeper into the tech wilderness.
         </p>
-        <p className="text-base text-gray-800 dark:text-gray-200">
+        <p className="text-base font-body text-gray-800 dark:text-gray-200">
           I've always been driven by the belief that technology, especially AI and robotics, isn't just about code; it's about profoundly transforming how we work and live by unraveling complex challenges. From driving impactful projects like our award-winning AI assistant for dementia patients at AI LA's Cerebral Beach Hacks to contributing to cutting-edge research as an NSF as a Data Science Fellow, I thrive on leading and collaborating with bright minds, always approaching challenges with an optimistic, yet realistic, outlook.
         </p>
-        <p className="text-base text-gray-800 dark:text-gray-200">
+        <p className="text-base font-body text-gray-800 dark:text-gray-200">
           When I'm not diving into the latest tech, you'll find me out on a hiking trail, experimenting in the kitchen with new recipes, or planning exciting adventures with my family and friends – because a well-rounded life, just like a well-engineered solution, is built on diverse experiences and connections.
         </p>
       </div>
 
       {/* Areas of Interest */}
       <div>
-        <h3 className="text-2xl font-semibold mb-6">Areas of Interest</h3>
+        <h3 className="font-body text-2xl font-semibold mb-6">Areas of Interest</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {interests.map((item, index) => (
             <div
               key={index}
-              className="bg-green-100 dark:bg-darkCard p-4 rounded-xl shadow hover:scale-[1.02] transition-transform text-center" // Added text-center here
+              className="bg-green-100 dark:bg-darkCard p-4 rounded-xl shadow hover:scale-[1.02] transition-transform text-center" 
             >
-              <div className="flex flex-col items-center justify-center mb-2 text-primary dark:text-orange-200"> {/* Changed to flex-col, items-center, justify-center */}
+              <div className="flex flex-col font-body items-center justify-center mb-2 text-primary dark:text-orange-200"> 
                 {item.icon}
                 {/* No gap-3 needed here anymore as items are stacked */}
               </div>
-              <h4 className="text-lg font-semibold mb-1">{item.title}</h4> {/* Added mb-1 for spacing */}
-              <p className="text-sm text-gray-800 dark:text-gray-200">{item.description}</p>
+              <h4 className="text-lg font-body font-semibold mb-1">{item.title}</h4> {/* Added mb-1 for spacing */}
+              <p className="text-sm font-body text-gray-800 dark:text-gray-200">{item.description}</p>
             </div>
           ))}
         </div>
