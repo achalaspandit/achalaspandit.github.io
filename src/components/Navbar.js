@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const navItems = [
     { name: "🥾 Trail Logs", to: "/experience" },
     { name: "🏕️ Campfire Builds", to: "/projects" },
-    { name: "🗺️ Journey Map", to: "https://drive.google.com/file/d/1LwUmsD6yPQ6hi-ZH79GaOLiCUvFh3BJC/view", external: true },
+    { name: "🗺️ Journey Map", to: "https://drive.google.com/file/d/18YXZIvyKSPq_t9xKg87zFV3qfAPIjR4z/view?usp=sharing", external: true },
 ];
 
 function Navbar() {

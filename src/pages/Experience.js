@@ -170,7 +170,7 @@ const Experience = () => {
 
     return (
         <div>
-            <h1 className="text-3xl font-bold mb-2 text-primary dark:text-orange-200">Trail Logs</h1>
+            <h1 className="font-body text-3xl font-bold mb-2 text-primary dark:text-orange-200">Trail Logs</h1>
             <p className="mt-4 text-gray-600 dark:text-gray-300 font-body">Click on a landmark to learn more about my experience!</p>
 
             <div className="relative w-full max-w-screen-xl mx-auto" style={{ height: '350px' }}>
