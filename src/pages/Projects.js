@@ -16,7 +16,7 @@ const projects = [
         description: `Patronus is an award-winning multimodal AI assistant, developed in under 24 hours, designed to support dementia patients through text, speech, image, and video interaction while ensuring maximum safety and minimizing hallucinations. This innovative project received top honors in the "Responsible AI" and "Most Innovative Product" challenges, along with recognition in the "Most Fundable Startup Track."`,
         tech: ["LangChain", "LLM", "Retreival Augmented Generation", "Flask", "React Native", "Qdrant", "MongoDB"],
         github: "https://github.com/CB2024PAV",
-        demo: "", 
+        demo: "https://devpost.com/software/patronus-a-spell-against-dementia", 
         image: "" 
     },
     {
