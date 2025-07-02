@@ -27,7 +27,7 @@ function Navbar() {
                             className={({ isActive }) =>
                                 `text-lg font-medium px-2 py-1 transition-all duration-200 ${
                                     isActive
-                                        ? "text-primary dark:text-orange-200"
+                                        ? "text-primary dark:text-orange-300"
                                         : "text-primary dark:text-gray-200"
                                 } hover:scale-110`
                             }

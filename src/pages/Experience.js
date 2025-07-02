@@ -23,14 +23,6 @@ const experiences = [
     },
     {
         id: 3,
-        role: "Software Engineer - Backend",
-        company: "Cerebral Beach Hacks, AI LA",
-        duration: "October 2024 – October 2024",
-        description: `Built Patronus, a personal AI assistant for dementia patients using Retrieval Augmented Generation and Langchain that supports interaction in text, speech, image and video for increased accessibility.
-        The award-winning multimodal AI, developed in less than 24 hours, is carefully designed to ensure maximum patient safety and minimize hallucinations. Project Link: https://devpost.com/software/patronus-a-spell-against-dementia`,
-    },
-    {
-        id: 4,
         role: "Data Science Fellow",
         company: "National Science Foundation - UCR",
         duration: "June 2024 - August 2024",
@@ -38,14 +30,14 @@ const experiences = [
         Integrated data and sensor fusion techniques into the pipeline we enhanced 3D road scene understanding by at least 20% and confidence and accuracy of object detection by 60%.`
     },
     {
-        id: 5,
+        id: 4,
         role: "Associate Software Engineer",
         company: "Accenture",
         duration: "September 2021 – July 2023",
         description: "Improved big data pipelines by benchmarking, tuning, and profiling across various systems. Gained strong experience working with Spark, Hadoop, and performance monitoring tools.",
     },
     {
-        id: 6,
+        id: 5,
         role: "Software Developer Intern",
         company: "RenderPub",
         duration: "January 2021 – June 2021",
@@ -53,7 +45,7 @@ const experiences = [
         Developed interactive 3D scenes using ThreeJS and React with WebGL for browser-based rendering.`,
     },
     {
-        id: 7,
+        id: 6,
         role: "Machine Learning Instructor",
         company: "Prinston Smart Engineers",
         duration: "July 2020 – April 2021",
@@ -69,8 +61,6 @@ const ExperienceModal = ({ experience, onClose }) => {
             return "🧠";
           case "Robotics Lab Student Assistant II":
             return "🤖";
-          case "Software Engineer - Backend":
-            return "💻";
           case "Data Science Fellow":
             return "📊";
           case "Associate Software Engineer":
@@ -138,13 +128,12 @@ const Experience = () => {
 
     // Define points along the path for each experience.
     const experiencePositions = [
-        { x: 170, y: 95, alignment: 'top' },    // AI Engineer
-        { x: 350, y: 200, alignment: 'bottom' }, // Robotics Lab
-        { x: 550, y: 120, alignment: 'top' },    // Software Engineer - Backend
-        { x: 750, y: 100, alignment: 'bottom' }, // Data Science Fellow
-        { x: 940, y: 115, alignment: 'top' },    // Associate Software Engineer
-        { x: 1100, y: 245, alignment: 'bottom' }, // Software Developer Intern
-        { x: 1250, y: 170, alignment: 'top' },   // Machine Learning Instructor
+        { x: 150, y: 85, alignment: 'top' },    // AI Engineer
+        { x: 340, y: 200, alignment: 'bottom' }, // Robotics Lab
+        { x: 550, y: 95, alignment: 'top' }, // Data Science Fellow
+        { x: 790, y: 125, alignment: 'bottom' },    // Associate Software Engineer
+        { x: 1050, y: 135, alignment: 'top' }, // Software Developer Intern
+        { x: 1250, y: 250, alignment: 'bottom' },   // Machine Learning Instructor
     ];
 
     const handleCardClick = (id) => {
@@ -170,7 +159,7 @@ const Experience = () => {
 
     return (
         <div>
-            <h1 className="font-body text-3xl font-bold mb-2 text-primary dark:text-orange-200">Trail Logs</h1>
+            <h1 className="font-body text-3xl font-bold mb-2 text-primary dark:text-orange-300">Trail Logs</h1>
             <p className="mt-4 text-gray-600 dark:text-gray-300 font-body">Click on a landmark to learn more about my experience!</p>
 
             <div className="relative w-full max-w-screen-xl mx-auto" style={{ height: '350px' }}>

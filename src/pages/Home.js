@@ -38,13 +38,13 @@ const interests = [
 
 function Home() {
   return (
-    <section className="min-h-screen px-6 py-2 bg-background dark:bg-darkBackground text-primary dark:text-orange-200">
+    <section className="min-h-screen px-6 py-2 bg-background dark:bg-darkBackground text-primary dark:text-orange-300">
       {/* Intro Row */}
       <div className="flex flex-col md:flex-row items-center gap-12 mb-6">
         <img
           src={profileImg}
           alt="Achala Profile"
-          className="w-44 h-44 rounded-full object-cover border-4 border-primary dark:border-orange-200 shadow"
+          className="w-44 h-44 rounded-full object-cover border-4 border-primary dark:border-orange-300 shadow"
         />
         <div className="text-center md:text-left">
           <h1 className="text-4xl font-body font-bold mb-2">Hi, I'm Achala</h1>
@@ -75,7 +75,7 @@ function Home() {
               key={index}
               className="bg-green-100 dark:bg-darkCard p-4 rounded-xl shadow hover:scale-[1.02] transition-transform text-center" 
             >
-              <div className="flex flex-col font-body items-center justify-center mb-2 text-primary dark:text-orange-200"> 
+              <div className="flex flex-col font-body items-center justify-center mb-2 text-primary dark:text-orange-300"> 
                 {item.icon}
                 {/* No gap-3 needed here anymore as items are stacked */}
               </div>
