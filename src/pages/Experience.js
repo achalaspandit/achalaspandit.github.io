@@ -54,25 +54,26 @@ const experiences = [
     },
 ];
 
+// ExperienceModal remains unchanged, but its usage will be conditional
 const ExperienceModal = ({ experience, onClose }) => {
     const getIcon = (role) => {
         switch (role) {
-          case "AI Engineer":
-            return "🧠";
-          case "Robotics Lab Student Assistant II":
-            return "🤖";
-          case "Data Science Fellow":
-            return "📊";
-          case "Associate Software Engineer":
-            return "⚙️";
-          case "Software Developer Intern":
-            return "✨";
-          case "Machine Learning Instructor":
-            return "👨‍🏫";
-          default:
-            return "🚀";
+            case "AI Engineer":
+                return "🧠";
+            case "Robotics Lab Student Assistant II":
+                return "🤖";
+            case "Data Science Fellow":
+                return "📊";
+            case "Associate Software Engineer":
+                return "⚙️";
+            case "Software Developer Intern":
+                return "✨";
+            case "Machine Learning Instructor":
+                return "👨‍🏫";
+            default:
+                return "🚀";
         }
-      };
+    };
 
     return createPortal(
         <motion.div
@@ -89,14 +90,14 @@ const ExperienceModal = ({ experience, onClose }) => {
                 exit={{ scale: 0.9, opacity: 0 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="bg-white dark:bg-darkCard text-primary dark:text-background
-                           rounded-lg shadow-2xl p-8 max-w-xl w-full mx-auto relative
-                           transform scale-100 transition-all duration-300 ease-in-out"
+                                rounded-lg shadow-2xl p-8 max-w-xl w-full mx-auto relative
+                                transform scale-100 transition-all duration-300 ease-in-out"
                 onClick={(e) => e.stopPropagation()}
             >
                 <button
                     onClick={onClose}
                     className="absolute top-4 right-4 text-primary dark:text-background text-2xl font-bold
-                               hover:text-accent dark:hover:text-accent transition-colors"
+                                hover:text-accent dark:hover:text-accent transition-colors"
                     aria-label="Close"
                 >
                     &times;
@@ -116,9 +117,38 @@ const ExperienceModal = ({ experience, onClose }) => {
 };
 
 const Experience = () => {
-    const [selectedExperience, setSelectedExperience] = useState(null);
+    // This state now tracks the ID of the experience currently expanded in portrait mode,
+    // or the ID of the experience whose modal is open in landscape mode.
+    const [selectedExperienceId, setSelectedExperienceId] = useState(null);
+    const [isMobile, setIsMobile] = useState(false);
 
-    // Define the SVG path data
+    // Get the actual experience object for the modal
+    const selectedExperience = experiences.find(exp => exp.id === selectedExperienceId);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    // Effect for handling body scroll lock only for the modal (landscape)
+    useEffect(() => {
+        if (!isMobile && selectedExperienceId) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        // Cleanup function for when component unmounts or selectedExperienceId/isMobile changes
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [selectedExperienceId, isMobile]);
+
+    // Define the SVG path data (only used for non-mobile)
     const svgPath = `
         M 50 150
         C 200 50, 350 250, 550 150
@@ -126,7 +156,7 @@ const Experience = () => {
         S 1150 250, 1350 150
     `;
 
-    // Define points along the path for each experience.
+    // Define points along the path for each experience. (only used for non-mobile)
     const experiencePositions = [
         { x: 150, y: 85, alignment: 'top' },    // AI Engineer
         { x: 340, y: 200, alignment: 'bottom' }, // Robotics Lab
@@ -137,76 +167,89 @@ const Experience = () => {
     ];
 
     const handleCardClick = (id) => {
-        const experience = experiences.find(exp => exp.id === id);
-        setSelectedExperience(experience);
+        if (isMobile) {
+            // Toggle expanded state for mobile
+            setSelectedExperienceId(prevId => (prevId === id ? null : id));
+        } else {
+            // Open modal for landscape
+            setSelectedExperienceId(id);
+        }
     };
 
     const handleCloseModal = () => {
-        setSelectedExperience(null);
+        setSelectedExperienceId(null);
     };
-
-    useEffect(() => {
-        if (selectedExperience) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-        return () => {
-            document.body.style.overflow = 'unset';
-        };
-    }, [selectedExperience]);
-
 
     return (
         <div>
             <h1 className="font-body text-3xl font-bold mb-2 text-primary dark:text-orange-300">Trail Logs</h1>
-            <p className="mt-4 text-gray-600 dark:text-gray-300 font-body">Click on a landmark to learn more about my experience!</p>
+            <p className="mt-4 text-gray-600 dark:text-gray-300 font-body">
+                {isMobile ? "Tap on an experience to expand details!" : "Click on a landmark to learn more about my experience!"}
+            </p>
 
-            <div className="relative w-full max-w-screen-xl mx-auto" style={{ height: '350px' }}>
-                <svg
-                    className="w-full h-full"
-                    viewBox="0 0 1400 350"
-                    preserveAspectRatio="xMidYMid meet"
-                >
-                    <defs>
-                        <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" className="stop-color-primary" />
-                            <stop offset="50%" className="stop-color-primary" />
-                            <stop offset="100%" className="stop-color-primary" />
-                        </linearGradient>
-                    </defs>
+            {isMobile ? (
+                // Portrait (Mobile) Layout - Use motion.div with layout for smooth re-layout
+                <motion.div layout className="flex flex-col items-center space-y-4 py-8 px-4"> {/* Added px-4 for padding on edges */}
+                    {experiences.map((exp) => (
+                        <ExperienceCard
+                            key={exp.id}
+                            experience={exp}
+                            onClick={handleCardClick}
+                            isMobile={true}
+                            isExpanded={selectedExperienceId === exp.id} // Control expansion via prop
+                        />
+                    ))}
+                </motion.div>
+            ) : (
+                // Landscape (Laptop) Layout - Original SVG
+                <div className="relative w-full max-w-screen-xl mx-auto" style={{ height: '350px' }}>
+                    <svg
+                        className="w-full h-full"
+                        viewBox="0 0 1400 350"
+                        preserveAspectRatio="xMidYMid meet"
+                    >
+                        <defs>
+                            <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" className="stop-color-primary" />
+                                <stop offset="50%" className="stop-color-primary" />
+                                <stop offset="100%" className="stop-color-primary" />
+                            </linearGradient>
+                        </defs>
 
-                    {/* The main trail path */}
-                    <path
-                        d={svgPath}
-                        fill="none"
-                        stroke="url(#pathGradient)"
-                        strokeWidth="25"
-                        strokeLinecap="round"
-                    />
+                        {/* The main trail path */}
+                        <path
+                            d={svgPath}
+                            fill="none"
+                            stroke="url(#pathGradient)"
+                            strokeWidth="25"
+                            strokeLinecap="round"
+                        />
 
-                    {/* Render ExperienceCards (small cards + dots) along the path */}
-                    {experiences.map((exp, index) => {
-                        const pos = experiencePositions[index];
-                        if (!pos) return null;
+                        {/* Render ExperienceCards (small cards + dots) along the path */}
+                        {experiences.map((exp, index) => {
+                            const pos = experiencePositions[index];
+                            if (!pos) return null;
 
-                        return (
-                            <ExperienceCard
-                                key={exp.id}
-                                experience={exp}
-                                onClick={handleCardClick}
-                                x={pos.x}
-                                y={pos.y}
-                                alignment={pos.alignment}
-                                isSelected={selectedExperience && selectedExperience.id === exp.id}
-                            />
-                        );
-                    })}
-                </svg>
-            </div>
+                            return (
+                                <ExperienceCard
+                                    key={exp.id}
+                                    experience={exp}
+                                    onClick={handleCardClick}
+                                    x={pos.x}
+                                    y={pos.y}
+                                    alignment={pos.alignment}
+                                    // isSelected will only highlight the dot, modal is separate
+                                    isSelected={selectedExperienceId === exp.id}
+                                />
+                            );
+                        })}
+                    </svg>
+                </div>
+            )}
             
+            {/* AnimatePresence for the modal (only appears in landscape) */}
             <AnimatePresence>
-                {selectedExperience && (
+                {!isMobile && selectedExperience && (
                     <ExperienceModal
                         experience={selectedExperience}
                         onClose={handleCloseModal}
